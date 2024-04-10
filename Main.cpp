@@ -3,14 +3,21 @@
 #include <string>
 
 int main() {
-    string input;
-    cout << "Enter your calculation: ";
-    getline(cin, input);
+    Calculator calculator;
+    std::string input;
 
-    Calculator calc;
-    int result = calc.evaluate(input);
+    while (true) {
+        std::cout << "Enter calculation (digits and operators only, type 'exit' to quit): ";
+        std::getline(std::cin, input);
 
-    cout << "Result: " << result << endl;
+        if (input == "exit") {
+            std::cout << "Exiting..." << std::endl;
+            break;
+        }
+
+        int result = calculator.calculate(input);
+        std::cout << "Result: " << result << std::endl;
+    }
 
     return 0;
 }
